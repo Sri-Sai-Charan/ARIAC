@@ -12,6 +12,9 @@
 ```diff
 - NOTE: Always review the Updates section when new code is pushed.
 ```
+```diff
+- NOTE: 'ariac_ws' is a catkin workspace that has all required packages and tools installed
+```
 <!---<img src="wiki/figures/ariac2020_3.jpg" alt="alt text" width="600" class="center">-->
 
 ## [Installation](wiki/tutorials/installation.md)
