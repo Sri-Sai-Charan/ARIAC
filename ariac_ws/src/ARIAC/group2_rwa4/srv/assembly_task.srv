@@ -1,0 +1,7 @@
+int16 request
+---
+string final_preset_location
+float64 part_offset
+geometry_msgs/Pose part_target_pose
+string part_type
+bool sucess

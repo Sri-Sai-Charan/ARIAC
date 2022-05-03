@@ -1,0 +1,8 @@
+# srv file for service to check order completion
+
+string order_id
+bool completion_status 
+
+---
+
+bool success

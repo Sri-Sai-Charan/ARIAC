@@ -1,0 +1,7 @@
+# srv file for service to get the details of the orders
+string order_detail
+
+---
+bool kitting_shipment_present
+AgvKittingShipmentDetails agv_kitting_details
+bool high_priority_order

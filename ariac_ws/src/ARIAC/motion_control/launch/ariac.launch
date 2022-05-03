@@ -1,0 +1,54 @@
+<launch>
+    <arg name="verbose" default="false" />
+    <arg unless="$(arg verbose)" name="verbose_args" value="" />
+    <arg if="$(arg verbose)" name="verbose_args" value="--verbose" />
+
+    <arg name="state_logging" default="false" />
+    <arg unless="$(arg state_logging)" name="state_logging_args" value="" />
+    <arg if="$(arg state_logging)" name="state_logging_args" value="--state-logging=true" />
+
+    <arg name="no_gui" default="false" />
+    <arg unless="$(arg no_gui)" name="gui_args" value="" />
+    <arg if="$(arg no_gui)" name="gui_args" value="--no-gui" />
+
+    <arg name="fill_demo_shipment" default="false" />
+    <arg unless="$(arg fill_demo_shipment)" name="fill_demo_shipment_args" value="" />
+    <arg if="$(arg fill_demo_shipment)" name="fill_demo_shipment_args" value="--fill-demo-shipment" />
+
+    <arg name="visualize_sensors" default="true" />
+    <arg unless="$(arg visualize_sensors)" name="visualize_sensors_args" value="" />
+    <arg if="$(arg visualize_sensors)" name="visualize_sensors_args" value="--visualize-sensor-views" />
+
+    <arg name="debug_mode" default="true" />
+    <arg unless="$(arg debug_mode)" name="debug_mode_args" value="" />
+    <arg if="$(arg debug_mode)" name="debug_mode_args" value="--development-mode" />
+
+    <arg name="load_moveit" default="true" />
+    <arg unless="$(arg load_moveit)" name="load_moveit_args" value="" />
+    <arg if="$(arg load_moveit)" name="load_moveit_args" value="--load-moveit" />
+
+    <node name="ariac_sim" pkg="nist_gear" type="gear.py" args="
+          $(arg verbose_args)
+          $(arg state_logging_args)
+          $(arg gui_args)
+          $(arg load_moveit_args)
+          $(arg fill_demo_shipment_args)
+          $(arg visualize_sensors_args)
+          $(arg debug_mode_args)
+          -f $(find motion_control)/config/trial_config/motion_control.yaml
+          $(find motion_control)/config/sensor_config/motion_control_sensor.yaml
+          " required="true" output="screen" />
+
+    <!-- <group ns='ariac/gantry'>
+        <include file="$(find gantry_moveit_config)/launch/moveit_rviz.launch">
+            <arg name="rviz_config" value="$(find motion_control)/rviz/gantry_moveit.rviz" />
+        </include>
+    </group> -->
+
+  <!-- <group ns='ariac/kitting'>
+    <include file="$(find kitting_moveit_config)/launch/moveit_rviz.launch">
+      <arg name="rviz_config" value="$(find motion_control)/rviz/arm_moveit.rviz" />
+    </include>
+  </group> -->
+
+</launch>

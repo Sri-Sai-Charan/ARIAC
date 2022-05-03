@@ -1,0 +1,6 @@
+# srv file for service to check if same part pose exists
+
+geometry_msgs/Pose part_pose
+
+---
+bool success

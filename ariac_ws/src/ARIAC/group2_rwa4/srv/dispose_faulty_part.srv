@@ -1,0 +1,7 @@
+# faulty part world pose
+
+geometry_msgs/Pose part_pose
+float64 part_offset
+
+---
+bool is_part_disposed

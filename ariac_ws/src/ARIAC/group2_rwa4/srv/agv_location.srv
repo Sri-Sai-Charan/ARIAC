@@ -1,0 +1,7 @@
+# srv file for service to check if something exists
+
+string agv_id
+
+---
+string agv_location
+bool success

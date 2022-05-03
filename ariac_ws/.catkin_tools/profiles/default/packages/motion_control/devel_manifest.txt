@@ -1,0 +1,6 @@
+ARIAC/motion_control
+/home/sai/ariac_ws/devel/.private/motion_control/cmake.lock /home/sai/ariac_ws/devel/./cmake.lock
+/home/sai/ariac_ws/devel/.private/motion_control/lib/pkgconfig/motion_control.pc /home/sai/ariac_ws/devel/lib/pkgconfig/motion_control.pc
+/home/sai/ariac_ws/devel/.private/motion_control/lib/motion_control/motion_control_cpp /home/sai/ariac_ws/devel/lib/motion_control/motion_control_cpp
+/home/sai/ariac_ws/devel/.private/motion_control/share/motion_control/cmake/motion_controlConfig.cmake /home/sai/ariac_ws/devel/share/motion_control/cmake/motion_controlConfig.cmake
+/home/sai/ariac_ws/devel/.private/motion_control/share/motion_control/cmake/motion_controlConfig-version.cmake /home/sai/ariac_ws/devel/share/motion_control/cmake/motion_controlConfig-version.cmake

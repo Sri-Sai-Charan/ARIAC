@@ -1,0 +1,6 @@
+# srv file for service to get the details of kitting shipments
+
+---
+bool kitting_shipment_present
+string order_id
+KittingShipment[] kitting_shipments

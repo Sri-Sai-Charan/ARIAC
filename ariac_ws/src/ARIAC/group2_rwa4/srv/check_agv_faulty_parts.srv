@@ -1,0 +1,8 @@
+# srv file for service to check if something exists
+
+string agv_id
+
+---
+bool success
+string faulty_part_count
+geometry_msgs/Pose[] faulty_part_poses 

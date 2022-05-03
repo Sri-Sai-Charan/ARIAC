@@ -1,0 +1,15 @@
+# srv file for service to check if something exists
+
+string part_type
+
+---
+bool success
+bool parts_present_in_bin0
+bool parts_present_in_bin1
+bool parts_present_in_bin2
+bool parts_present_in_bin3
+bool parts_present_in_bin4
+bool parts_present_in_bin5
+bool parts_present_in_bin6
+bool parts_present_in_bin7
+geometry_msgs/Pose[] part_poses 

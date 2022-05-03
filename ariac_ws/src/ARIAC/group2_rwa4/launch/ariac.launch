@@ -1,0 +1,65 @@
+<launch>
+  <arg name="verbose" default="false" />
+  <arg unless="$(arg verbose)" name="verbose_args" value="" />
+  <arg     if="$(arg verbose)" name="verbose_args" value="--verbose" />
+
+  <arg name="state_logging" default="false" />
+  <arg unless="$(arg state_logging)" name="state_logging_args" value="" />
+  <arg     if="$(arg state_logging)" name="state_logging_args" value="--state-logging=true" />
+
+  <arg name="no_gui" default="false" />
+  <arg unless="$(arg no_gui)" name="gui_args" value="" />
+  <arg     if="$(arg no_gui)" name="gui_args" value="--no-gui" />
+
+  <arg name="fill_demo_shipment" default="false" />
+  <arg unless="$(arg fill_demo_shipment)" name="fill_demo_shipment_args" value="" />
+  <arg     if="$(arg fill_demo_shipment)" name="fill_demo_shipment_args" value="--fill-demo-shipment" />
+
+  <arg name="load_moveit" default="true" />
+  <arg unless="$(arg load_moveit)" name="load_moveit_args" value="" />
+  <arg if="$(arg load_moveit)" name="load_moveit_args" value="--load-moveit" />
+
+  <node name="ariac_sim" pkg="nist_gear" type="gear.py"
+        args="
+          $(arg verbose_args)
+          $(arg state_logging_args)
+          $(arg gui_args)
+          $(arg load_moveit_args)
+          $(arg fill_demo_shipment_args)
+          -f $(find group2_rwa4)/config/trial_config/rwa4.yaml
+          $(find group2_rwa4)/config/user_config/group1_config.yaml
+          " required="true" output="screen" />
+
+  <!-- parameter server values -->
+  <param name="is_competition_started" type="bool" value="false" />
+  <param name="is_order_initialized" type="bool" value="false" />
+  <param name="is_bins_handler_initialized" type="bool" value="false" />
+  <param name="is_conveyor_handler_initialized" type="bool" value="false" />
+  <param name="is_agv_handler_initialized" type="bool" value="false" />
+  <param name="is_assembly_handler_initialized" type="bool" value="false" />
+  <param name="is_kitting_handler_initialized" type="bool" value="false" />  
+  <param name="agv1_ready_to_ship" type="bool" value="false" />  
+  <param name="agv2_ready_to_ship" type="bool" value="false" />  
+  <param name="agv3_ready_to_ship" type="bool" value="false" />  
+  <param name="agv4_ready_to_ship" type="bool" value="false" />  
+
+  <param name="conveyor_part_type" type="string" value="assembly_pump_red" />  
+  <param name="is_kitting_robot_busy" type="bool" value="false" />  
+  <param name="insufficient_part" type="string" value="none" />  
+
+  <arg name="node_start_delay_10s" default="10.0" />  
+  <node type="rwa4_node" pkg="group2_rwa4" name="rwa4_node" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay_10s); $0 $@' "/>
+  <!-- <node pkg="group2_rwa4"
+                type="rwa4.sh" name="rwa4.sh"
+                output="screen"
+        /> -->
+
+  <!-- <arg name="node_start_delay_10s" default="10.0" />  
+  <arg name="node_start_delay_20s" default="20.0" />  
+
+  <node pkg="group2_rwa4" type="main_handler_node" name="main_handler_node" output="screen"/>
+  <node name="order_handler_node" pkg="group2_rwa4" type="order_handler_node" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay_10s); $0 $@' " />  
+  <node name="bins_handler_node" pkg="group2_rwa4" type="bins_handler_node" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay_10s); $0 $@' " />
+  <node name="agv_handler_node" pkg="group2_rwa4" type="agv_handler_node" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay_10s); $0 $@' " />    -->
+
+</launch>
